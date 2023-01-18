@@ -4,8 +4,6 @@
 
 Promise는 객체로써 언젠가 완료될 일(계산)을 나타냄. 완료되면 하나의 값을 결과로 반환하는데 실패하면 실패의 이유를 반환할 수도 있음
 
-
-
 #### Promise 객체는 3가지 상태를 가짐
 
 - 대기중(Pending) : 아직 결과가 없는 상태. 약속했지만 아직 약속에 대한 겨로가가 나오지 않은 상태임
@@ -14,15 +12,11 @@ Promise는 객체로써 언젠가 완료될 일(계산)을 나타냄. 완료되�
 
 - 거부됨(Rejected) : 비동기 처리가 실패한 상태. 약속이 거부되어 그 결과로 거절된 이유를 전달
 
-
-
 #### Promise 객체는 2가지 메소드를 가짐
 
 - then(onFulfilled, onReject) : 약속이 완료됐을 때 호출될 함수들을 정의. 1째 인자로 전달되는 함수는 약속이 이행되었을 때 호출되고 2째 인자는 거부됐을때 호출됨. **두 전달 인자 함수들은 매개변수를 가지는데 각각의 결과가 매개변수를 통해 전달됨**
 
 - catch(onReject) : **약속이 거부됐을 때 호출될 함수(onReject)를 등록합니다.**
-
- 
 
 ```javascript
 function promiseForHomework(mustDo){
@@ -51,17 +45,11 @@ promiseA.then(v => console.log(v));
 promiseB.then(v => console.log(v)).catch(e => console.log(e));
 ```
 
-
-
 하나의 비동기 계산이 다른 비동기 계산의 결과에 의해 처리되어야 하는 경우가 많기에 Promise가 나오기 전에는 콜백 패턴으로 비동기 처리를 하였음.
 
 다만, 중첩된 비동기 코드들을 처리하다보면 피라미드 형태의 코드 일명 <mark>콜백지옥</mark>을 형성
 
-
-
 Promise의 then 메소드에서 새로운 비동기 코드를 실행하는 Promise를 반환할 수 있는데 다음 then 메소드는 새롭게 만들어진 Promise 코드가 이행되기 전까지 호출되지 않음
-
-
 
 ```javascript
 function doJob(name, person){
@@ -106,5 +94,3 @@ doJob('work',harin)
 > 2. **study success**
 > 
 > 3. **Error: work failed`**
-
-
